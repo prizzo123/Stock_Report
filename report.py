@@ -233,8 +233,17 @@ for ticker in stocks:
         earnings = si.get_next_earnings_date(ticker)
         earningsConv = earnings - date
         earningsConv = earningsConv.days
-        if macroRSI <= 35:
-            dmi(ticker)
+        if macroRSI <= 30:
+            #dmi(ticker)
+            cid = cid + 1
+            imageCID = str(cid)
+            Name = ticker + ".png"
+            imageName.append(Name)
+            imageSRC = '<img src=\"' + 'cid: image' + imageCID + '\">'
+            earningsDate = '<br>' + '<h3>' + str(ticker) + '</h3>' + imageSRC + '<br>' + 'RSI: ' + str(macroRSI) + '<br>' + 'Days until earnings: ' + str(earningsConv) + '<br>'
+            earningDates = earningDates + earningsDate
+        elif macroRSI >= 70:
+            #dmi(ticker)
             cid = cid + 1
             imageCID = str(cid)
             Name = ticker + ".png"
